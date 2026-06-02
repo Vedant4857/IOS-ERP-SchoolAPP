@@ -9,16 +9,16 @@ import { Avatar, Badge, Chip } from '../components';
 const CLASSES = ['All', 'Class 1', 'Class 5', 'Class 8', 'Class 10', 'Class 12'];
 
 const STUDENTS = [
-  { id: '1', name: 'Aarav Sharma',   class: 'Class 10 A', roll: '01', status: 'Present', fee: 'Paid' },
-  { id: '2', name: 'Priya Patel',    class: 'Class 8 B',  roll: '12', status: 'Absent',  fee: 'Due' },
-  { id: '3', name: 'Rohan Gupta',    class: 'Class 12 C', roll: '05', status: 'Present', fee: 'Paid' },
-  { id: '4', name: 'Sneha Verma',    class: 'Class 5 A',  roll: '23', status: 'Leave',   fee: 'Paid' },
-  { id: '5', name: 'Arjun Singh',    class: 'Class 1 B',  roll: '08', status: 'Present', fee: 'Due' },
-  { id: '6', name: 'Kavya Nair',     class: 'Class 10 A', roll: '17', status: 'Present', fee: 'Paid' },
-  { id: '7', name: 'Devraj Mehta',   class: 'Class 8 B',  roll: '31', status: 'Absent',  fee: 'Paid' },
-  { id: '8', name: 'Tanvi Joshi',    class: 'Class 12 C', roll: '19', status: 'Present', fee: 'Due' },
-  { id: '9', name: 'Rahul Reddy',    class: 'Class 5 A',  roll: '04', status: 'Present', fee: 'Paid' },
-  { id: '10', name: 'Isha Kapoor',   class: 'Class 1 B',  roll: '29', status: 'Leave',   fee: 'Due' },
+  { id: '1', name: 'Aarav Sharma', class: 'Class 10 A', roll: '01', status: 'Present', fee: 'Paid' },
+  { id: '2', name: 'Priya Patel', class: 'Class 8 B', roll: '12', status: 'Absent', fee: 'Due' },
+  { id: '3', name: 'Rohan Gupta', class: 'Class 12 C', roll: '05', status: 'Present', fee: 'Paid' },
+  { id: '4', name: 'Sneha Verma', class: 'Class 5 A', roll: '23', status: 'Leave', fee: 'Paid' },
+  { id: '5', name: 'Arjun Singh', class: 'Class 1 B', roll: '08', status: 'Present', fee: 'Due' },
+  { id: '6', name: 'Kavya Nair', class: 'Class 10 A', roll: '17', status: 'Present', fee: 'Paid' },
+  { id: '7', name: 'Devraj Mehta', class: 'Class 8 B', roll: '31', status: 'Absent', fee: 'Paid' },
+  { id: '8', name: 'Tanvi Joshi', class: 'Class 12 C', roll: '19', status: 'Present', fee: 'Due' },
+  { id: '9', name: 'Rahul Reddy', class: 'Class 5 A', roll: '04', status: 'Present', fee: 'Paid' },
+  { id: '10', name: 'Isha Kapoor', class: 'Class 1 B', roll: '29', status: 'Leave', fee: 'Due' },
 ];
 
 const AVATAR_COLORS = [
@@ -26,16 +26,16 @@ const AVATAR_COLORS = [
 ];
 
 const statusColor = { Present: Colors.success, Absent: Colors.danger, Leave: Colors.warning };
-const feeColor    = { Paid: Colors.success, Due: Colors.danger };
+const feeColor = { Paid: Colors.success, Due: Colors.danger };
 
 export default function StudentsScreen({ navigation }) {
-  const [search, setSearch]     = useState('');
+  const [search, setSearch] = useState('');
   const [activeClass, setActive] = useState('All');
 
   const filtered = STUDENTS.filter(s => {
     const matchSearch = s.name.toLowerCase().includes(search.toLowerCase()) ||
-                        s.roll.includes(search);
-    const matchClass  = activeClass === 'All' || s.class.startsWith(activeClass);
+      s.roll.includes(search);
+    const matchClass = activeClass === 'All' || s.class.startsWith(activeClass);
     return matchSearch && matchClass;
   });
 

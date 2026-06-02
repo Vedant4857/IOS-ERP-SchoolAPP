@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, SafeAreaView,
   TouchableOpacity, StatusBar, Switch,
@@ -10,10 +10,10 @@ const MENU_SECTIONS = [
   {
     title: 'School',
     items: [
-      { icon: '🏫', label: 'School Profile',   sub: 'Sunrise Public School' },
-      { icon: '📅', label: 'Academic Year',    sub: '2025–26' },
+      { icon: '🏫', label: 'School Profile', sub: 'Sunrise Public School' },
+      { icon: '📅', label: 'Academic Year', sub: '2025–26' },
       { icon: '🎓', label: 'Classes & Sections', sub: '42 classes' },
-      { icon: '🧑‍🏫', label: 'Staff Directory',  sub: '86 members' },
+      { icon: '🧑‍🏫', label: 'Staff Directory', sub: '86 members' },
     ],
   },
   {
@@ -29,9 +29,9 @@ const MENU_SECTIONS = [
     title: 'Settings',
     items: [
       { icon: '🔔', label: 'Notifications', toggle: true },
-      { icon: '🌙', label: 'Dark Mode',     toggle: true },
+      { icon: '🌙', label: 'Dark Mode', toggle: true },
       { icon: '🔒', label: 'Change Password' },
-      { icon: '🌐', label: 'Language',      sub: 'English' },
+      { icon: '🌐', label: 'Language', sub: 'English' },
     ],
   },
   {
@@ -46,8 +46,18 @@ const MENU_SECTIONS = [
 ];
 
 export default function ProfileScreen({ navigation }) {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView
+      style={[
+        styles.safe,
+        {
+          backgroundColor: darkMode
+            ? '#0F172A'
+            : Colors.background,
+        },
+      ]}
+    >
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -69,7 +79,7 @@ export default function ProfileScreen({ navigation }) {
           {[
             { label: 'Students', value: '1,248' },
             { label: 'Teachers', value: '86' },
-            { label: 'Classes',  value: '42' },
+            { label: 'Classes', value: '42' },
           ].map((s, i) => (
             <View key={i} style={[styles.stripItem, i < 2 && styles.stripBorder]}>
               <Text style={styles.stripValue}>{s.value}</Text>
@@ -101,10 +111,22 @@ export default function ProfileScreen({ navigation }) {
                   </View>
                   {item.toggle
                     ? <Switch
-                        value={item.label === 'Notifications'}
-                        trackColor={{ true: Colors.primary, false: Colors.border }}
-                        ios_backgroundColor={Colors.border}
-                      />
+                      value={
+                        item.label === 'Dark Mode'
+                          ? darkMode
+                          : true
+                      }
+                      onValueChange={() => {
+                        if (item.label === 'Dark Mode') {
+                          setDarkMode(!darkMode);
+                        }
+                      }}
+                      trackColor={{
+                        true: Colors.primary,
+                        false: Colors.border,
+                      }}
+                      ios_backgroundColor={Colors.border}
+                    />
                     : <Text style={styles.menuChevron}>›</Text>
                   }
                 </TouchableOpacity>

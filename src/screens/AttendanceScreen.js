@@ -9,25 +9,25 @@ import { Avatar, Card, Badge } from '../components';
 const CLASSES_LIST = ['Class 10 A', 'Class 8 B', 'Class 12 C', 'Class 5 A', 'Class 1 B'];
 
 const STUDENTS = [
-  { id: '1', name: 'Aarav Sharma',   roll: '01', status: 'present' },
-  { id: '2', name: 'Priya Patel',    roll: '02', status: 'absent'  },
-  { id: '3', name: 'Rohan Gupta',    roll: '03', status: 'present' },
-  { id: '4', name: 'Sneha Verma',    roll: '04', status: 'leave'   },
-  { id: '5', name: 'Arjun Singh',    roll: '05', status: 'present' },
-  { id: '6', name: 'Kavya Nair',     roll: '06', status: 'present' },
-  { id: '7', name: 'Devraj Mehta',   roll: '07', status: 'absent'  },
-  { id: '8', name: 'Tanvi Joshi',    roll: '08', status: 'present' },
+  { id: '1', name: 'Vedant Shekhar', roll: '01', status: 'present' },
+  { id: '2', name: 'Priya Patel', roll: '02', status: 'absent' },
+  { id: '3', name: 'Rohan Gupta', roll: '03', status: 'present' },
+  { id: '4', name: 'Sneha Verma', roll: '04', status: 'leave' },
+  { id: '5', name: 'Arjun Singh', roll: '05', status: 'present' },
+  { id: '6', name: 'Kavya Nair', roll: '06', status: 'present' },
+  { id: '7', name: 'Devraj Mehta', roll: '07', status: 'absent' },
+  { id: '8', name: 'Tanvi Joshi', roll: '08', status: 'present' },
 ];
 
 const STATUS_CONFIG = {
   present: { label: 'P', color: Colors.success, bg: Colors.successLight },
-  absent:  { label: 'A', color: Colors.danger,  bg: Colors.dangerLight },
-  leave:   { label: 'L', color: Colors.warning, bg: Colors.warningLight },
+  absent: { label: 'A', color: Colors.danger, bg: Colors.dangerLight },
+  leave: { label: 'L', color: Colors.warning, bg: Colors.warningLight },
 };
 
 export default function AttendanceScreen() {
   const [selectedClass, setSelectedClass] = useState('Class 10 A');
-  const [attendance, setAttendance]       = useState(
+  const [attendance, setAttendance] = useState(
     Object.fromEntries(STUDENTS.map(s => [s.id, s.status]))
   );
   const [saved, setSaved] = useState(false);
@@ -94,7 +94,7 @@ export default function AttendanceScreen() {
       {/* Legend */}
       <View style={styles.legend}>
         <Text style={styles.legendHint}>Tap a student to cycle: </Text>
-        {['present','absent','leave'].map(s => (
+        {['present', 'absent', 'leave'].map(s => (
           <View key={s} style={[styles.legendDot, { backgroundColor: STATUS_CONFIG[s].color }]} />
         ))}
         <Text style={styles.legendHint}> P → A → L</Text>
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
 
   classRow: { paddingHorizontal: Spacing.base, paddingBottom: 4 },
   classBtn: {
-    paddingHorizontal: Spacing.base, paddingVertical: Spacing.xs + 6,minHeight: 40,
+    paddingHorizontal: Spacing.base, paddingVertical: Spacing.xs + 6, minHeight: 40,
     borderRadius: Radius.full, backgroundColor: Colors.surface,
     marginRight: Spacing.sm, borderWidth: 1, borderColor: Colors.border,
     marginBottom: Spacing.sm, gap: Spacing.sm,

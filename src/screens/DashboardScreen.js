@@ -9,25 +9,25 @@ import {
 } from '../components';
 
 const STATS = [
-  { icon: '👥', value: '124', label: 'Students',  color: Colors.primary,  bg: Colors.purpleLight },
-  { icon: '🎓', value: '86',    label: 'Teachers',  color: Colors.success,  bg: Colors.successLight },
-  { icon: '📚', value: '42',    label: 'Classes',   color: Colors.purple,   bg: Colors.purpleLight },
-  { icon: '💰', value: '94%',   label: 'Fee Paid',  color: Colors.warning,  bg: Colors.warningLight },
+  { icon: '👥', value: '124', label: 'Students', color: Colors.primary, bg: Colors.purpleLight },
+  { icon: '🎓', value: '86', label: 'Teachers', color: Colors.success, bg: Colors.successLight },
+  { icon: '📚', value: '42', label: 'Classes', color: Colors.purple, bg: Colors.purpleLight },
+  { icon: '💰', value: '94%', label: 'Fee Paid', color: Colors.warning, bg: Colors.warningLight },
 ];
 
 const NOTICES = [
-  { id: 1, title: 'Annual Sports Day', date: 'Jun 10',  tag: 'Event',  tagColor: Colors.primary },
-  { id: 2, title: 'Fee Due Reminder',  date: 'Jun 5',   tag: 'Finance',tagColor: Colors.warning },
-  { id: 3, title: 'Exam Schedule Out', date: 'Jun 3',   tag: 'Exam',   tagColor: Colors.danger },
+  { id: 1, title: 'Annual Sports Day', date: 'Jun 10', tag: 'Event', tagColor: Colors.primary },
+  { id: 2, title: 'Fee Due Reminder', date: 'Jun 5', tag: 'Finance', tagColor: Colors.warning },
+  { id: 3, title: 'Exam Schedule Out', date: 'Jun 3', tag: 'Exam', tagColor: Colors.danger },
 ];
 
 const QUICK_LINKS = [
   { icon: '📋', label: 'Attendance', screen: 'Attendance' },
-  { icon: '📊', label: 'Results',    screen: 'Results' },
-  { icon: '💳', label: 'Fees',       screen: 'Fees' },
-  { icon: '📅', label: 'Timetable',  screen: 'Timetable' },
-  { icon: '📣', label: 'Notices',    screen: 'Notices' },
-  { icon: '🚌', label: 'Transport',  screen: 'Transport' },
+  { icon: '📊', label: 'Results', screen: 'Results' },
+  { icon: '💳', label: 'Fees', screen: 'Fees' },
+  { icon: '📅', label: 'Timetable', screen: 'Timetable' },
+  { icon: '📣', label: 'Notices', screen: 'Notices' },
+  { icon: '🚌', label: 'Transport', screen: 'Transport' },
 ];
 
 export default function DashboardScreen({ navigation }) {
@@ -100,8 +100,8 @@ export default function DashboardScreen({ navigation }) {
           {/* Bar chart */}
           <View style={styles.attRow}>
             <AttendBar label="Present" percent={78} color={Colors.success} />
-            <AttendBar label="Absent"  percent={14} color={Colors.danger} />
-            <AttendBar label="Leave"   percent={8}  color={Colors.warning} />
+            <AttendBar label="Absent" percent={14} color={Colors.danger} />
+            <AttendBar label="Leave" percent={8} color={Colors.warning} />
           </View>
           <Text style={styles.attFooter}>
             Last updated today at 9:30 AM
@@ -116,7 +116,7 @@ export default function DashboardScreen({ navigation }) {
         />
         <View style={styles.noticesWrap}>
           {NOTICES.map(n => (
-            <Card key={n.id} style={styles.noticeCard} onPress={() => {}}>
+            <Card key={n.id} style={styles.noticeCard} onPress={() => { }}>
               <View style={styles.noticeRow}>
                 <View style={{ flex: 1 }}>
                   <Badge label={n.tag} color={n.tagColor} bg={n.tagColor + '18'} />
@@ -136,9 +136,9 @@ export default function DashboardScreen({ navigation }) {
           contentContainerStyle={{ paddingHorizontal: Spacing.base, paddingBottom: 4 }}
         >
           {[
-            { title: 'PTM Meeting',      date: 'Jun 8',  color: Colors.primary },
-            { title: 'Science Fair',     date: 'Jun 15', color: Colors.success },
-            { title: 'Summer Holidays',  date: 'Jun 20', color: Colors.warning },
+            { title: 'PTM Meeting', date: 'Jun 8', color: Colors.primary },
+            { title: 'Science Fair', date: 'Jun 15', color: Colors.success },
+            { title: 'Summer Holidays', date: 'Jun 20', color: Colors.warning },
           ].map((ev, i) => (
             <View key={i} style={[styles.eventCard, { borderTopColor: ev.color }]}>
               <Text style={[styles.eventDate, { color: ev.color }]}>{ev.date}</Text>
