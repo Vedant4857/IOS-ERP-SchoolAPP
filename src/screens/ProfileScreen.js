@@ -107,7 +107,7 @@ export default function ProfileScreen({ navigation }) {
                   </View>
                   <View style={styles.menuBody}>
                     <Text style={styles.menuLabel}>{item.label}</Text>
-                    {item.sub && <Text style={styles.menuSub}>{item.sub}</Text>}
+                    {item.sub && <Text style={styles.menuSub}>{item.sub}</Text>}₹
                   </View>
                   {item.toggle
                     ? <Switch
