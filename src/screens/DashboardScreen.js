@@ -45,10 +45,10 @@ export default function DashboardScreen({ navigation }) {
           <View style={styles.headerTop}>
             <View>
               <Text style={styles.greeting}>Good Morning 👋</Text>
-              <Text style={styles.schoolName}>Nobel Kids </Text>
+              <Text style={styles.schoolName}>Sunrise Public School</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-              <Avatar name="Admin User" size={44} color={Colors.white} />
+              <Avatar name="Vedant Shekhar" size={44} color={Colors.white} />
             </TouchableOpacity>
           </View>
 

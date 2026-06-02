@@ -65,8 +65,8 @@ export default function ProfileScreen({ navigation }) {
       >
         {/* Profile card */}
         <View style={styles.profileCard}>
-          <Avatar name="Admin User" size={72} color={Colors.primary} />
-          <Text style={styles.adminName}>Admin User</Text>
+          <Avatar name="Vedant Shekhar" size={72} color={Colors.primary} />
+          <Text style={styles.adminName}>Vedant Shekhar</Text>
           <Text style={styles.adminRole}>School Administrator</Text>
           <Text style={styles.adminSchool}>🏫 Sunrise Public School</Text>
           <TouchableOpacity style={styles.editBtn}>
