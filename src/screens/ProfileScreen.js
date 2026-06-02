@@ -65,7 +65,7 @@ export default function ProfileScreen({ navigation }) {
       >
         {/* Profile card */}
         <View style={styles.profileCard}>
-          <Avatar name="Vedant Shekhar" size={72} color={Colors.primary} />
+          <Avatar name="Vedant Shekhar" size={72} color={Colors.purple} />
           <Text style={styles.adminName}>Vedant Shekhar</Text>
           <Text style={styles.adminRole}>School Administrator</Text>
           <Text style={styles.adminSchool}>🏫 Sunrise Public School</Text>
@@ -159,13 +159,13 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary, marginTop: Spacing.sm, letterSpacing: -0.5,
   },
   adminRole: { fontSize: Typography.sm, color: Colors.textSecondary, marginTop: 2 },
-  adminSchool: { fontSize: Typography.sm, color: Colors.primary, marginTop: 4, fontWeight: '600' },
+  adminSchool: { fontSize: Typography.sm, color: Colors.primapurplery, marginTop: 4, fontWeight: '600' },
   editBtn: {
-    marginTop: Spacing.md, borderWidth: 1.5, borderColor: Colors.primary,
+    marginTop: Spacing.md, borderWidth: 1.5, borderColor: Colors.purple,
     paddingHorizontal: Spacing.xl, paddingVertical: Spacing.xs + 2,
     borderRadius: Radius.full,
   },
-  editBtnText: { color: Colors.primary, fontWeight: '600', fontSize: Typography.sm },
+  editBtnText: { color: Colors.purple, fontWeight: '600', fontSize: Typography.sm },
 
   statsStrip: {
     flexDirection: 'row', backgroundColor: Colors.surface,

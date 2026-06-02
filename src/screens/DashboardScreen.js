@@ -9,10 +9,10 @@ import {
 } from '../components';
 
 const STATS = [
-  { icon: '👥', value: '124', label: 'Students', color: Colors.primary, bg: Colors.purpleLight },
-  { icon: '🎓', value: '86', label: 'Teachers', color: Colors.success, bg: Colors.successLight },
+  { icon: '👥', value: '124', label: 'Students', color: Colors.purple, bg: Colors.purpleLight },
+  { icon: '🎓', value: '86', label: 'Teachers', color: Colors.purple, bg: Colors.purpleLight },
   { icon: '📚', value: '42', label: 'Classes', color: Colors.purple, bg: Colors.purpleLight },
-  { icon: '💰', value: '94%', label: 'Fee Paid', color: Colors.warning, bg: Colors.warningLight },
+  { icon: '💰', value: '94%', label: 'Fee Paid', color: Colors.purple, bg: Colors.purpleLight },
 ];
 
 const NOTICES = [
@@ -156,7 +156,7 @@ function AttendBar({ label, percent, color }) {
     <View style={styles.attCol}>
       <Text style={[styles.attPercent, { color }]}>{percent}%</Text>
       <View style={styles.attBarBg}>
-        <View style={[styles.attBarFill, { height: `${percent}%`, backgroundColor: color }]} />
+        <View style={[styles.attBarFill, { width: `${percent}%`, backgroundColor: color }]} />
       </View>
       <Text style={styles.attLabel}>{label}</Text>
     </View>
@@ -164,16 +164,19 @@ function AttendBar({ label, percent, color }) {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.primary },
+  safe: { flex: 1, backgroundColor: Colors.white },
   scroll: { flex: 1, backgroundColor: Colors.background },
 
   header: {
-    backgroundColor: Colors.primary,
-    paddingTop: Platform.OS === 'android' ? Spacing.base : 0,
+    backgroundColor: Colors.purple,
+    paddingTop: Spacing.xl,
     paddingBottom: Spacing.xl,
     paddingHorizontal: Spacing.base,
-    borderBottomLeftRadius: Radius.xl + 4,
-    borderBottomRightRadius: Radius.xl + 4,
+    // borderBottomLeftRadius: 35,
+    // borderBottomRightRadius: Radius.xl + 4,
+    marginHorizontal: 4,
+    marginTop: 2,
+    borderRadius: 30,
     overflow: 'hidden',
   },
   headerGlow: {
@@ -184,7 +187,7 @@ const styles = StyleSheet.create({
   },
   headerTop: {
     flexDirection: 'row', justifyContent: 'space-between',
-    alignItems: 'center', marginBottom: Spacing.base,
+    alignItems: 'center', marginBottom: Spacing.base, marginTop: 20,
   },
   greeting: {
     fontSize: Typography.sm, color: 'rgba(255,255,255,0.75)',
@@ -209,14 +212,25 @@ const styles = StyleSheet.create({
 
   statsRow: {
     flexDirection: 'row',
+    backgroundColor: '#fbf3fa',
     paddingHorizontal: Spacing.sm,
-    marginTop: -Spacing.base,
+    marginTop: -Spacing.AttendBar,
     marginBottom: Spacing.sm,
+    borderColor: '#E5E7EB',
   },
 
   quickLinks: {
     paddingHorizontal: Spacing.base,
-    paddingBottom: 4,
+    paddingVertical: 8,
+
+    backgroundColor: '#fafafa',
+    borderRadius: 16,
+
+    marginHorizontal: Spacing.sm,
+    marginTop: 8,
+
+    borderWidth: 1,
+    borderColor: '#f0f2f7',
   },
   quickLink: { alignItems: 'center', marginRight: Spacing.base + 4 },
   quickLinkIcon: {
@@ -230,28 +244,62 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs, color: Colors.textSecondary,
     fontWeight: '500', textAlign: 'center',
   },
-
   attendanceCard: {
     backgroundColor: Colors.surface,
-    borderRadius: Radius.lg,
+    borderRadius: 20,
     marginHorizontal: Spacing.base,
-    padding: Spacing.base,
+    padding: 18,
+
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
+
   attRow: {
-    flexDirection: 'row', justifyContent: 'space-around',
-    height: 100, marginBottom: Spacing.sm,
+    marginBottom: 16,
   },
-  attCol: { alignItems: 'center', flex: 1 },
-  attPercent: { fontSize: Typography.sm, fontWeight: '700', marginBottom: Spacing.xs },
+
+  attHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+
+  attLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.textPrimary,
+  },
+
+  attPercent: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#2563EB',
+  },
+
   attBarBg: {
-    flex: 1, width: 28, backgroundColor: Colors.background,
-    borderRadius: Radius.sm, overflow: 'hidden', justifyContent: 'flex-end',
+    height: 10,
+    backgroundColor: '#EEF2F7',
+    borderRadius: 10,
+    overflow: 'hidden',
   },
-  attBarFill: { width: '100%', borderRadius: Radius.sm },
-  attLabel: { fontSize: Typography.xs, color: Colors.textSecondary, marginTop: Spacing.xs },
+
+  attBarFill: {
+    height: '100%',
+    borderRadius: 10,
+  },
+
   attFooter: {
-    fontSize: Typography.xs, color: Colors.textTertiary,
-    textAlign: 'center', marginTop: Spacing.xs,
+    marginTop: 12,
+    textAlign: 'center',
+    fontSize: 12,
+    color: Colors.textSecondary,
   },
 
   noticesWrap: { paddingHorizontal: Spacing.base },

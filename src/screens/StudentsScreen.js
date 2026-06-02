@@ -9,7 +9,7 @@ import { Avatar, Badge, Chip } from '../components';
 const CLASSES = ['All', 'Class 1', 'Class 5', 'Class 8', 'Class 10', 'Class 12'];
 
 const STUDENTS = [
-  { id: '1', name: 'Aarav Sharma', class: 'Class 10 A', roll: '01', status: 'Present', fee: 'Paid' },
+  { id: '1', name: 'Vedant Shekhar', class: 'Class 10 A', roll: '01', status: 'Present', fee: 'Paid' },
   { id: '2', name: 'Priya Patel', class: 'Class 8 B', roll: '12', status: 'Absent', fee: 'Due' },
   { id: '3', name: 'Rohan Gupta', class: 'Class 12 C', roll: '05', status: 'Present', fee: 'Paid' },
   { id: '4', name: 'Sneha Verma', class: 'Class 5 A', roll: '23', status: 'Leave', fee: 'Paid' },
@@ -22,7 +22,7 @@ const STUDENTS = [
 ];
 
 const AVATAR_COLORS = [
-  Colors.primary, Colors.success, Colors.purple, Colors.warning, Colors.accent,
+  Colors.purple, Colors.success, Colors.purple, Colors.warning, Colors.accent,
 ];
 
 const statusColor = { Present: Colors.success, Absent: Colors.danger, Leave: Colors.warning };
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
   },
 
-  filterRow: { paddingHorizontal: Spacing.base, paddingBottom: 4 },
+  filterRow: { paddingHorizontal: Spacing.base, paddingBottom: 0 },
 
   summaryBar: {
     flexDirection: 'row', justifyContent: 'space-between',
