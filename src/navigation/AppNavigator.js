@@ -6,24 +6,24 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Colors, Typography, Spacing, Radius, Shadow } from '../theme';
 
-import DashboardScreen    from '../screens/DashboardScreen';
-import StudentsScreen     from '../screens/StudentsScreen';
+import DashboardScreen from '../screens/DashboardScreen';
+import StudentsScreen from '../screens/StudentsScreen';
 import StudentDetailScreen from '../screens/StudentDetailScreen';
-import AttendanceScreen   from '../screens/AttendanceScreen';
-import FeesScreen         from '../screens/FeesScreen';
-import TimetableScreen    from '../screens/TimetableScreen';
-import NoticesScreen      from '../screens/NoticesScreen';
-import ProfileScreen      from '../screens/ProfileScreen';
+import AttendanceScreen from '../screens/AttendanceScreen';
+import FeesScreen from '../screens/FeesScreen';
+import TimetableScreen from '../screens/TimetableScreen';
+import NoticesScreen from '../screens/NoticesScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
-const Tab   = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const TAB_ITEMS = [
   { name: 'Dashboard', icon: '🏠', label: 'Home' },
-  { name: 'Students',  icon: '👥', label: 'Students' },
-  { name: 'Attendance',icon: '📋', label: 'Attendance' },
-  { name: 'Fees',      icon: '💳', label: 'Fees' },
-  { name: 'Profile',   icon: '⚙️', label: 'More' },
+  { name: 'Students', icon: '👥', label: 'Students' },
+  { name: 'Attendance', icon: '📋', label: 'Attendance' },
+  { name: 'Fees', icon: '💳', label: 'Fees' },
+  { name: 'Profile', icon: '⚙️', label: 'More' },
 ];
 
 // Custom tab bar
@@ -32,8 +32,8 @@ function CustomTabBar({ state, descriptors, navigation }) {
     <View style={styles.tabBar}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
-        const isFocused    = state.index === index;
-        const item         = TAB_ITEMS[index];
+        const isFocused = state.index === index;
+        const item = TAB_ITEMS[index];
 
         return (
           <TouchableOpacity
@@ -71,11 +71,11 @@ function MainTabs() {
       tabBar={props => <CustomTabBar {...props} />}
       screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name="Dashboard"  component={DashboardScreen} />
-      <Tab.Screen name="Students"   component={StudentsScreen} />
+      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      <Tab.Screen name="Students" component={StudentsScreen} />
       <Tab.Screen name="Attendance" component={AttendanceScreen} />
-      <Tab.Screen name="Fees"       component={FeesScreen} />
-      <Tab.Screen name="Profile"    component={ProfileScreen} />
+      <Tab.Screen name="Fees" component={FeesScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
@@ -85,10 +85,10 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Main"          component={MainTabs} />
+        <Stack.Screen name="Main" component={MainTabs} />
         <Stack.Screen name="StudentDetail" component={StudentDetailScreen} />
-        <Stack.Screen name="Timetable"     component={TimetableScreen} />
-        <Stack.Screen name="Notices"       component={NoticesScreen} />
+        <Stack.Screen name="Timetable" component={TimetableScreen} />
+        <Stack.Screen name="Notices" component={NoticesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

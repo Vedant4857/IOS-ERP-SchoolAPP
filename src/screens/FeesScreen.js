@@ -7,14 +7,14 @@ import { Colors, Typography, Spacing, Radius, Shadow } from '../theme';
 import { Card, Badge, Avatar, SectionHeader } from '../components';
 
 const FEE_DATA = [
-  { id:'1', name:'Aarav Sharma',   class:'Class 10 A', amount:12000, paid:12000, due:0 },
-  { id:'2', name:'Priya Patel',    class:'Class 8 B',  amount:10000, paid:0,     due:10000 },
-  { id:'3', name:'Rohan Gupta',    class:'Class 12 C', amount:14000, paid:14000, due:0 },
-  { id:'4', name:'Sneha Verma',    class:'Class 5 A',  amount:9000,  paid:4500,  due:4500 },
-  { id:'5', name:'Arjun Singh',    class:'Class 1 B',  amount:8000,  paid:8000,  due:0 },
-  { id:'6', name:'Kavya Nair',     class:'Class 10 A', amount:12000, paid:0,     due:12000 },
-  { id:'7', name:'Devraj Mehta',   class:'Class 8 B',  amount:10000, paid:10000, due:0 },
-  { id:'8', name:'Tanvi Joshi',    class:'Class 12 C', amount:14000, paid:7000,  due:7000 },
+  { id: '1', name: 'Aarav Sharma', class: 'Class 10 A', amount: 12000, paid: 12000, due: 0 },
+  { id: '2', name: 'Priya Patel', class: 'Class 8 B', amount: 10000, paid: 0, due: 10000 },
+  { id: '3', name: 'Rohan Gupta', class: 'Class 12 C', amount: 14000, paid: 14000, due: 0 },
+  { id: '4', name: 'Sneha Verma', class: 'Class 5 A', amount: 9000, paid: 4500, due: 4500 },
+  { id: '5', name: 'Arjun Singh', class: 'Class 1 B', amount: 8000, paid: 8000, due: 0 },
+  { id: '6', name: 'Kavya Nair', class: 'Class 10 A', amount: 12000, paid: 0, due: 12000 },
+  { id: '7', name: 'Devraj Mehta', class: 'Class 8 B', amount: 10000, paid: 10000, due: 0 },
+  { id: '8', name: 'Tanvi Joshi', class: 'Class 12 C', amount: 14000, paid: 7000, due: 7000 },
 ];
 
 const FILTERS = ['All', 'Paid', 'Due', 'Partial'];
@@ -25,12 +25,12 @@ export default function FeesScreen() {
   const [filter, setFilter] = useState('All');
 
   const totalCollected = FEE_DATA.reduce((a, f) => a + f.paid, 0);
-  const totalDue       = FEE_DATA.reduce((a, f) => a + f.due, 0);
-  const total          = FEE_DATA.reduce((a, f) => a + f.amount, 0);
+  const totalDue = FEE_DATA.reduce((a, f) => a + f.due, 0);
+  const total = FEE_DATA.reduce((a, f) => a + f.amount, 0);
 
   const filtered = FEE_DATA.filter(f => {
-    if (filter === 'Paid')    return f.due === 0;
-    if (filter === 'Due')     return f.paid === 0 && f.due > 0;
+    if (filter === 'Paid') return f.due === 0;
+    if (filter === 'Due') return f.paid === 0 && f.due > 0;
     if (filter === 'Partial') return f.paid > 0 && f.due > 0;
     return true;
   });
@@ -49,23 +49,23 @@ export default function FeesScreen() {
         <Text style={styles.summaryHeading}>Academic Year 2025–26</Text>
         <View style={styles.summaryRow}>
           <View style={styles.summaryCol}>
-            <Text style={styles.summaryAmt}>₹{(totalCollected/1000).toFixed(0)}K</Text>
+            <Text style={styles.summaryAmt}>₹{(totalCollected / 1000).toFixed(0)}K</Text>
             <Text style={[styles.summaryLbl, { color: Colors.success }]}>Collected</Text>
           </View>
           <View style={styles.summaryDivider} />
           <View style={styles.summaryCol}>
-            <Text style={[styles.summaryAmt, { color: Colors.danger }]}>₹{(totalDue/1000).toFixed(0)}K</Text>
+            <Text style={[styles.summaryAmt, { color: Colors.danger }]}>₹{(totalDue / 1000).toFixed(0)}K</Text>
             <Text style={[styles.summaryLbl, { color: Colors.danger }]}>Outstanding</Text>
           </View>
           <View style={styles.summaryDivider} />
           <View style={styles.summaryCol}>
-            <Text style={styles.summaryAmt}>₹{(total/1000).toFixed(0)}K</Text>
+            <Text style={styles.summaryAmt}>₹{(total / 1000).toFixed(0)}K</Text>
             <Text style={styles.summaryLbl}>Total</Text>
           </View>
         </View>
         {/* Progress bar */}
         <View style={styles.progressBg}>
-          <View style={[styles.progressFill, { width: `${(totalCollected/total)*100}%` }]} />
+          <View style={[styles.progressFill, { width: `${(totalCollected / total) * 100}%` }]} />
         </View>
         <Text style={styles.progressLabel}>
           {Math.round((totalCollected / total) * 100)}% collected
@@ -96,12 +96,12 @@ export default function FeesScreen() {
         ItemSeparatorComponent={() => <View style={{ height: Spacing.sm }} />}
         showsVerticalScrollIndicator={false}
         renderItem={({ item, index }) => {
-          const isFullPaid   = item.due === 0;
-          const isPartial    = item.paid > 0 && item.due > 0;
-          const noPay        = item.paid === 0;
-          const status       = isFullPaid ? 'Paid' : isPartial ? 'Partial' : 'Due';
-          const statusColor  = isFullPaid ? Colors.success : isPartial ? Colors.warning : Colors.danger;
-          const pct          = Math.round((item.paid / item.amount) * 100);
+          const isFullPaid = item.due === 0;
+          const isPartial = item.paid > 0 && item.due > 0;
+          const noPay = item.paid === 0;
+          const status = isFullPaid ? 'Paid' : isPartial ? 'Partial' : 'Due';
+          const statusColor = isFullPaid ? Colors.success : isPartial ? Colors.warning : Colors.danger;
+          const pct = Math.round((item.paid / item.amount) * 100);
 
           return (
             <Card style={styles.feeCard}>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
 
   filterRow: { paddingHorizontal: Spacing.base, paddingBottom: 4 },
   filterChip: {
-    paddingHorizontal: Spacing.base, paddingVertical: Spacing.xs + 2,
+    paddingHorizontal: Spacing.base, paddingVertical: Spacing.xs + 5,
     borderRadius: Radius.full, backgroundColor: Colors.surface,
     marginRight: Spacing.sm, borderWidth: 1, borderColor: Colors.border,
   },

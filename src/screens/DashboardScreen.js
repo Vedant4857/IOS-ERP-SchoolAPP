@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, StyleSheet, SafeAreaView,
+  View, Text, ScrollView, StyleSheet, SafeAreaView, RefreshControl,
   TouchableOpacity, StatusBar, Platform,
 } from 'react-native';
 import { Colors, Typography, Spacing, Radius, Shadow } from '../theme';
@@ -23,14 +23,22 @@ const NOTICES = [
 
 const QUICK_LINKS = [
   { icon: '📋', label: 'Attendance', screen: 'Attendance' },
-  { icon: '📊', label: 'Results', screen: 'Results' },
+  { icon: '📈', label: 'Results', screen: 'Results' },
   { icon: '💳', label: 'Fees', screen: 'Fees' },
-  { icon: '📅', label: 'Timetable', screen: 'Timetable' },
-  { icon: '📣', label: 'Notices', screen: 'Notices' },
+  { icon: '🗓️', label: 'Timetable', screen: 'Timetable' },
+  { icon: '📢', label: 'Notices', screen: 'Notices' },
   { icon: '🚌', label: 'Transport', screen: 'Transport' },
 ];
 
 export default function DashboardScreen({ navigation }) {
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = () => {
+    setRefreshing(true);
+
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  };
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />

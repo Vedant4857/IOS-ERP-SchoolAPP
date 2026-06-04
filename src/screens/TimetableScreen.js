@@ -10,30 +10,30 @@ const TODAY_IDX = Math.min(new Date().getDay() - 1, 5); // 0=Mon
 
 const TIMETABLE = {
   Mon: [
-    { time: '8:00–8:45',  subject: 'Mathematics',    teacher: 'Mr. Sharma',  color: Colors.primary },
-    { time: '8:45–9:30',  subject: 'Science',         teacher: 'Ms. Gupta',   color: Colors.success },
-    { time: '9:30–9:45',  subject: 'Break',            teacher: '',            color: Colors.border, isBreak: true },
-    { time: '9:45–10:30', subject: 'English',          teacher: 'Ms. Khan',    color: Colors.warning },
-    { time: '10:30–11:15',subject: 'Social Science',   teacher: 'Mr. Patel',   color: Colors.purple },
-    { time: '11:15–12:00',subject: 'Hindi',            teacher: 'Ms. Rao',     color: Colors.accent },
-    { time: '12:00–12:45',subject: 'Lunch',            teacher: '',            color: Colors.border, isBreak: true },
-    { time: '12:45–1:30', subject: 'Computer Science', teacher: 'Mr. Mehta',   color: Colors.primary },
-    { time: '1:30–2:15',  subject: 'Physical Education', teacher: 'Mr. Singh', color: Colors.success },
+    { time: '8:00–8:45', subject: 'Mathematics', teacher: 'Mr. Sharma', color: Colors.primary },
+    { time: '8:45–9:30', subject: 'Science', teacher: 'Ms. Gupta', color: Colors.success },
+    { time: '9:30–9:45', subject: 'Break', teacher: '', color: Colors.border, isBreak: true },
+    { time: '9:45–10:30', subject: 'English', teacher: 'Ms. Khan', color: Colors.warning },
+    { time: '10:30–11:15', subject: 'Social Science', teacher: 'Mr. Patel', color: Colors.purple },
+    { time: '11:15–12:00', subject: 'Hindi', teacher: 'Ms. Rao', color: Colors.accent },
+    { time: '12:00–12:45', subject: 'Lunch', teacher: '', color: Colors.border, isBreak: true },
+    { time: '12:45–1:30', subject: 'Computer Science', teacher: 'Mr. Mehta', color: Colors.primary },
+    { time: '1:30–2:15', subject: 'Physical Education', teacher: 'Mr. Singh', color: Colors.success },
   ],
   Tue: [
-    { time: '8:00–8:45',  subject: 'English',          teacher: 'Ms. Khan',    color: Colors.warning },
-    { time: '8:45–9:30',  subject: 'Mathematics',      teacher: 'Mr. Sharma',  color: Colors.primary },
-    { time: '9:30–9:45',  subject: 'Break',            teacher: '',            color: Colors.border, isBreak: true },
-    { time: '9:45–10:30', subject: 'Hindi',            teacher: 'Ms. Rao',     color: Colors.accent },
-    { time: '10:30–11:15',subject: 'Science',          teacher: 'Ms. Gupta',   color: Colors.success },
-    { time: '11:15–12:00',subject: 'Art & Craft',      teacher: 'Mr. Joshi',   color: Colors.danger },
-    { time: '12:00–12:45',subject: 'Lunch',            teacher: '',            color: Colors.border, isBreak: true },
-    { time: '12:45–1:30', subject: 'Social Science',   teacher: 'Mr. Patel',   color: Colors.purple },
-    { time: '1:30–2:15',  subject: 'Computer Science', teacher: 'Mr. Mehta',   color: Colors.primary },
+    { time: '8:00–8:45', subject: 'English', teacher: 'Ms. Khan', color: Colors.warning },
+    { time: '8:45–9:30', subject: 'Mathematics', teacher: 'Mr. Sharma', color: Colors.primary },
+    { time: '9:30–9:45', subject: 'Break', teacher: '', color: Colors.border, isBreak: true },
+    { time: '9:45–10:30', subject: 'Hindi', teacher: 'Ms. Rao', color: Colors.accent },
+    { time: '10:30–11:15', subject: 'Science', teacher: 'Ms. Gupta', color: Colors.success },
+    { time: '11:15–12:00', subject: 'Art & Craft', teacher: 'Mr. Joshi', color: Colors.danger },
+    { time: '12:00–12:45', subject: 'Lunch', teacher: '', color: Colors.border, isBreak: true },
+    { time: '12:45–1:30', subject: 'Social Science', teacher: 'Mr. Patel', color: Colors.purple },
+    { time: '1:30–2:15', subject: 'Computer Science', teacher: 'Mr. Mehta', color: Colors.primary },
   ],
 };
 // Fallback for other days
-const DEFAULT_DAY = TIMETABLE.Mon;
+const DEFAULT_DAY = TIMETABLE.Tue;
 
 export default function TimetableScreen() {
   const [activeDay, setActiveDay] = useState(Math.max(TODAY_IDX, 0));
